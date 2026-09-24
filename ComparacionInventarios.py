@@ -16,6 +16,6 @@ inventario_sae = st.file_uploader("Seleccionar Inventario de SAE:", type=["xlsx"
 numero_de_bases = st.number_input("Cuantas bases se encuentran activas?", min_value=1, max_value=10)
 dictio_bases = {}
 for i in range(numero_de_bases):
-    dictio_bases["inventario_base_{0}".format(i)] = st.file_uploader(f"Seleccionar Inventario de la Base {i+1}:", type=["xlsx","xls"], key=f"Base_{i}")
-
-#st.header(str(inventario_sae.name))
+    base = st.file_uploader(f"Seleccionar Inventario de la Base {i+1}:", type=["xlsx","xls"], key=f"Base_{i}")
+    dictio_bases[base.name.split(".")[0]] = base
+    st.header(base.name.split(".")[0])

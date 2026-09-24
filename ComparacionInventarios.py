@@ -26,7 +26,7 @@ for i in range(numero_de_bases):
         base = None
 
 st.divider()
-if inventario_plataforma is not None and inventario_sae is not None and len(dictio_bases.keys)==numero_de_bases:
+if inventario_plataforma is not None and inventario_sae is not None and len(dictio_bases.keys())==numero_de_bases:
     # Leer el archivo Excel del inventario de la plataforma e Inventario SAE
     df_inventario_plataforma = pd.read_excel(inventario_plataforma)
     df_inventario_sae = pd.read_excel(inventario_sae)

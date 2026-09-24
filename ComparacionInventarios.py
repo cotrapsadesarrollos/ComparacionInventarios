@@ -17,7 +17,7 @@ numero_de_bases = st.number_input("Cuantas bases se encuentran activas?", min_va
 dictio_bases = {}
 for i in range(numero_de_bases):
     base = st.file_uploader(f"Seleccionar Inventario de la Base {i+1}:", type=["xlsx","xls"], key=f"Base_{i}")
-    dictio_bases[base.name.split(".")[0]] = base
     if base is not None:
+        dictio_bases[base.name.split(".")[0]] = base
         st.header(base.name.split(".")[0])
         base = None

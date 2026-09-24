@@ -18,5 +18,5 @@ dictio_bases = {}
 for i in range(numero_de_bases):
     base = st.file_uploader(f"Seleccionar Inventario de la Base {i+1}:", type=["xlsx","xls"], key=f"Base_{i}")
     dictio_bases[base.name.split(".")[0]] = base
-    while base not None:
+    while base != None:
         st.header(base.name.split(".")[0])

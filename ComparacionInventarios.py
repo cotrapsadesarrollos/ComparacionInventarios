@@ -19,5 +19,5 @@ for i in range(numero_de_bases):
     base = st.file_uploader(f"Seleccionar Inventario de la Base {i+1}:", type=["xlsx","xls"], key=f"Base_{i}")
     if base is not None:
         dictio_bases[base.name.split(".")[0]] = base
-        st.header(base.name.split(".")[0])
+        st.write(f"Inventario de {base.name.split(".")[0]} subido correctamente")
         base = None

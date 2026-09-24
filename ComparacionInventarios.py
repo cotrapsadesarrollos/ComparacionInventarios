@@ -24,3 +24,15 @@ for i in range(numero_de_bases):
         dictio_bases[base.name.split(".")[0]] = pd.read_excel(base)
         st.write(f"Inventario de {base.name.split(".")[0]} subido correctamente")
         base = None
+
+st.divider()
+if inventario_plataforma is not None and inventario_sae is not None and len(dictio_bases.keys)==numero_de_bases:
+    # Leer el archivo Excel del inventario de la plataforma e Inventario SAE
+    df_inventario_plataforma = pd.read_excel(inventario_plataforma)
+    df_inventario_sae = pd.read_excel(inventario_sae)
+
+    st.write("### Inventario de la plataforma")
+    st.dataframe(df_inventario_plataforma)
+
+    st.write("### Inventario SAE")
+    st.dataframe(df_inventario_sae)

@@ -17,4 +17,4 @@ dictio_bases = {}
 for i in range(numero_de_bases):
     dictio_bases["inventario_base_{0}".format(i)] = st.file_uploader(f"Seleccionar Inventario de la Base {i+1}:", type=["xlsx","xls"], key=f"Base_{i}")
 
-st.header(inventario_sae.name)
+st.header(inventario_sae.name())

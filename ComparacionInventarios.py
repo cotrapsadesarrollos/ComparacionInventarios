@@ -11,6 +11,7 @@ st.title("Comparacion de Inventarios", text_alignment="center")
 st.header("Archvios necesarios para el procesamiento:")
 inventario_plataforma = st.file_uploader("Seleccionar Inventario de la Plataforma:", type=["xlsx","xls"])
 inventario_sae = st.file_uploader("Seleccionar Inventario de SAE:", type=["xlsx","xls"])
+bases = st.file_uploader("Seleccionar Inventario de SAE:", type=["xlsx","xls"], accept_multiple_files="directory")
 
 numero_de_bases = st.number_input("Cuantas bases se encuentran activas?", min_value=1, max_value=10)
 dictio_bases = {}

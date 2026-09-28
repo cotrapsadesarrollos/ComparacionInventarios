@@ -43,7 +43,7 @@ if inventario_plataforma is not None and inventario_sae is not None and len(dict
 
     # Procesamiento para realizar la comparacion de Inventarios Reales vs Plataformna
     if st.button("Comparacion de inventarios"):
-        break
+        df_inventario_plataforma = df_inventario_plataforma[~df_inventario_plataforma['NUMERO DE PARTE'].isin(['001','002','003','004','009','010','012','013','015','016','018'])].reset_index(drop=True).copy()
 
 
 

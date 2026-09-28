@@ -40,9 +40,9 @@ if inventario_plataforma is not None and inventario_sae is not None and len(dict
     st.write("### Inventario SAE")
     st.dataframe(df_inventario_sae)
 
-    for i in dictio_bases.keys():
-        st.write(f"### Inventario {i}")
-        st.dataframe(dictio_bases[i])
+    #for i in dictio_bases.keys():
+        #st.write(f"### Inventario {i}")
+        #st.dataframe(dictio_bases[i])
 
     # Procesamiento para realizar la comparacion de Inventarios Reales vs Plataformna
     if st.button("Comparacion de inventarios"):
@@ -52,14 +52,19 @@ if inventario_plataforma is not None and inventario_sae is not None and len(dict
         #Creamos un diccionario con el inventario real de cada Base
         inventarios_plataforma={}
         for i in dictio_bases.keys():
-            #inventarios_reales[i] = dict(zip(dictio_bases[i]['NO. DE PARTE '], dictio_bases[i]['INVENTARIO']))
+            #Filtramos el Inventario de la plataforma para quedarnos con los materiales de la base actual
             df_inventario_plataforma_filtrado = df_inventario_plataforma[df_inventario_plataforma['ALMACEN']==i].copy()
-            inventarios_plataforma[i] = dict(zip([str(x) for x in df_inventario_plataforma_filtrado['NUMERO DE PARTE']], df_inventario_plataforma_filtrado["EXISTENCIA"]))
-            #inventarios_plataforma[i]['nan'] = [np.nan]
-            dictio_bases[i]["INVENTARIO PLATAFORMA"] = [inventarios_plataforma[i][str(x)] for x in dictio_bases[i]['NO. DE PARTE ']]
-            #st.write(dictio_bases[i]['NO. DE PARTE '][152])
 
-            st.write(f"### Inventario {i}")
+            #Creamos un diccionario con las existencias de la base actual en la plataforma
+            inventarios_plataforma[i] = dict(zip([str(x) for x in df_inventario_plataforma_filtrado['NUMERO DE PARTE']], df_inventario_plataforma_filtrado["EXISTENCIA"]))
+
+            #Agregamos la columna con la existencia de la plataforma al inventario real
+            dictio_bases[i]["INVENTARIO PLATAFORMA"] = [inventarios_plataforma[i][str(x)] for x in dictio_bases[i]['NO. DE PARTE ']]
+
+            #Agregamos columna de la diferencia del inventario real con el inventario de la plataforma
+            dictio_bases[i]["DIFERENCIA DE EXISTENCIAS"] = dictio_bases[i]["INVENTARIO"] - dictio_bases[i]["INVENTARIO PLATAFORMA"]
+
+            st.write(f"### Comparacion Inventario {i}")
             st.dataframe(dictio_bases[i])
 
 

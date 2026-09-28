@@ -50,7 +50,8 @@ if inventario_plataforma is not None and inventario_sae is not None and len(dict
         for i in dictio_bases.keys():
             inventarios_reales[i]=dict(zip(dictio_bases[i]['NO. DE PARTE '], dictio_bases[i]['INVENTARIO']))
 
-        st.write(dictio_bases.keys())
+        st.write(list(dictio_bases.keys()))
+        st.write(list(df_inventario_plataforma['ALMACEN'].value_counts().keys()))
 
 
 

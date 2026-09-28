@@ -43,6 +43,7 @@ if inventario_plataforma is not None and inventario_sae is not None and len(dict
 
     # Procesamiento para realizar la comparacion de Inventarios Reales vs Plataformna
     if st.button("Comparacion de inventarios"):
+        break
 
 
 

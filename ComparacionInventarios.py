@@ -56,7 +56,7 @@ if inventario_plataforma is not None and inventario_sae is not None and len(dict
             df_inventario_plataforma_filtrado = df_inventario_plataforma[df_inventario_plataforma['ALMACEN']==i].copy()
             inventarios_plataforma[i] = dict(zip([str(x) for x in df_inventario_plataforma_filtrado['NUMERO DE PARTE']], df_inventario_plataforma_filtrado["EXISTENCIA"]))
             #inventarios_plataforma[i]['nan'] = [np.nan]
-            dictio_bases[i]["INVENTARIO PLATAFORMA"] = [inventarios_plataforma[i][x] for x in dictio_bases[i]['NO. DE PARTE ']]
+            dictio_bases[i]["INVENTARIO PLATAFORMA"] = [inventarios_plataforma[i][str(x)] for x in dictio_bases[i]['NO. DE PARTE ']]
             #st.write(dictio_bases[i]['NO. DE PARTE '][152])
 
             st.write(f"### Inventario {i}")

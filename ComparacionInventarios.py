@@ -50,12 +50,15 @@ if inventario_plataforma is not None and inventario_sae is not None and len(dict
         df_inventario_plataforma = df_inventario_plataforma[~df_inventario_plataforma['NUMERO DE PARTE'].isin(['001','002','003','004','009','010','012','013','015','016','018'])].reset_index(drop=True).copy()
         
         #Creamos un diccionario con el inventario real de cada Base
-        inventarios_reales={}
+        inventarios_plataforma={}
         for i in dictio_bases.keys():
-            inventarios_reales[i]=dict(zip(dictio_bases[i]['NO. DE PARTE '], dictio_bases[i]['INVENTARIO']))
+            #inventarios_reales[i] = dict(zip(dictio_bases[i]['NO. DE PARTE '], dictio_bases[i]['INVENTARIO']))
+            df_inventario_plataforma_filtrado = df_inventario_plataforma[df_inventario_plataforma['ALMACEN']==i].copy()
+            inventarios_plataforma[i] = dict(zip(df_inventario_plataforma_filtrado['NUMERO DE PARTE'], df_inventario_plataforma_filtrado["EXISTENCIA"]))
+            dictio_bases[i]["INVENTARIO PLATAFORMA"] = [inventarios_plataforma[i][x] for x in dictio_bases[i]['NO. DE PARTE ']]
 
-        st.write(list(dictio_bases.keys()))
-        st.write(list(df_inventario_plataforma['ALMACEN'].value_counts().keys()))
+            st.write(f"### Inventario {i}")
+            st.dataframe(dictio_bases[i])
 
 
 

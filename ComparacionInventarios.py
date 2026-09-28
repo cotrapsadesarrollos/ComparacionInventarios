@@ -40,3 +40,14 @@ if inventario_plataforma is not None and inventario_sae is not None and len(dict
     for i in dictio_bases.keys():
         st.write(f"### Inventario {i}")
         st.dataframe(dictio_bases[i])
+
+    # Procesamiento para realizar la comparacion de Inventarios Reales vs Plataformna
+    if st.button("Comparacion de inventarios"):
+
+
+
+
+
+
+
+

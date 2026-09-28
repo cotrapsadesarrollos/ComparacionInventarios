@@ -24,7 +24,7 @@ dictio_bases = {}
 for i in range(numero_de_bases):
     base = st.file_uploader(f"Seleccionar Inventario de la Base {i+1}:", type=["xlsx","xls"], key=f"Base_{i}")
     if base is not None:
-        dictio_bases[dictio_nombres_bases[base.name.split(".")[0]]] = pd.read_excel(base)
+        dictio_bases[dictio_nombres_bases[base.name.split(".")[0]]] = pd.read_excel(base).dropna().copy()
         st.write(f"Inventario de {base.name.split(".")[0]} subido correctamente")
         base = None
 
@@ -55,8 +55,8 @@ if inventario_plataforma is not None and inventario_sae is not None and len(dict
             #inventarios_reales[i] = dict(zip(dictio_bases[i]['NO. DE PARTE '], dictio_bases[i]['INVENTARIO']))
             df_inventario_plataforma_filtrado = df_inventario_plataforma[df_inventario_plataforma['ALMACEN']==i].copy()
             inventarios_plataforma[i] = dict(zip([str(x) for x in df_inventario_plataforma_filtrado['NUMERO DE PARTE']], df_inventario_plataforma_filtrado["EXISTENCIA"]))
-            inventarios_plataforma[i]['nan'] = [np.nan]
-            dictio_bases[i]["INVENTARIO PLATAFORMA"] = [inventarios_plataforma[i][str(x)] for x in dictio_bases[i]['NO. DE PARTE ']]
+            #inventarios_plataforma[i]['nan'] = [np.nan]
+            dictio_bases[i]["INVENTARIO PLATAFORMA"] = [inventarios_plataforma[i][x] for x in dictio_bases[i]['NO. DE PARTE ']]
             #st.write(dictio_bases[i]['NO. DE PARTE '][152])
 
             st.write(f"### Inventario {i}")

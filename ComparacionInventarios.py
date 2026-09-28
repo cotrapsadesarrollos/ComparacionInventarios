@@ -36,3 +36,7 @@ if inventario_plataforma is not None and inventario_sae is not None and len(dict
 
     st.write("### Inventario SAE")
     st.dataframe(df_inventario_sae)
+
+    for i in dictio_bases.keys():
+        st.write(f"### Inventario {i}")
+        st.dataframe(dictio_bases[i])

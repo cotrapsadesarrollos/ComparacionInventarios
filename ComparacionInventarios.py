@@ -64,8 +64,15 @@ if inventario_plataforma is not None and inventario_sae is not None and len(dict
             #Agregamos columna de la diferencia del inventario real con el inventario de la plataforma
             dictio_bases[i]["DIFERENCIA DE EXISTENCIAS"] = dictio_bases[i]["INVENTARIO"] - dictio_bases[i]["INVENTARIO PLATAFORMA"]
 
+            #Imprimimos mensaje si hay o no hay diferencias
+            if dictio_bases[i]["DIFERENCIA DE EXISTENCIAS"].sum() == 0:
+                st.write(f"NO HAY DIFERENCIAS EN EL INVENTARIO DE {i}")
+            else:
+                st.write(f"SI HAY DIFERENCIAS EN EL INVENTARIO DE {i}, FAVOR DE REVISARLO")
+
             st.write(f"### Comparacion Inventario {i}")
             st.dataframe(dictio_bases[i])
+            
 
 
 

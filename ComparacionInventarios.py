@@ -71,7 +71,7 @@ if inventario_plataforma is not None and inventario_sae is not None and len(dict
                 st.write(f"SI HAY DIFERENCIAS EN EL INVENTARIO DE {i}, FAVOR DE REVISARLO")
 
             st.write(f"### Comparacion Inventario {i}")
-            st.dataframe(dictio_bases[i])
+            st.dataframe(dictio_bases[i][dictio_bases[i]["DIFERENCIA DE EXISTENCIAS"]!=0])
             
 
 

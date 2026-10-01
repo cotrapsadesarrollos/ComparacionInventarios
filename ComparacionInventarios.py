@@ -19,6 +19,7 @@ inventario_sae = st.file_uploader("Seleccionar Inventario de SAE:", type=["xlsx"
 
 st.divider()
 st.subheader("Archvios de Inventarios realizados en las Bases:")
+st.subheader("Los archivos deben tener exactamente los siguientes nombres:/n * BARCEL TOLUCA.xlsx /n BIMBO TOLUCA.xlsx")
 numero_de_bases = st.number_input("Cuantas bases se encuentran activas?", min_value=1, max_value=10)
 dictio_bases = {}
 for i in range(numero_de_bases):

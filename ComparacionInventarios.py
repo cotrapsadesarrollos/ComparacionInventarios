@@ -19,7 +19,6 @@ inventario_sae = st.file_uploader("Seleccionar Inventario de SAE:", type=["xlsx"
 
 st.divider()
 st.subheader("Archvios de Inventarios realizados en las Bases:")
-st.subheader("Los archivos de las bases activas deben tener exactamente los siguientes nombres:\n * BARCEL TOLUCA.xlsx \n * BIMBO TOLUCA.xlsx \n * BARCEL ACAYUCAN.xlsx \n * BIMBO SAN LUIS POTOSI.xlsx \n * BIMBO VILLAHERMOSA.xlsx")
 numero_de_bases = st.number_input("Cuantas bases se encuentran activas?", min_value=1, max_value=10)
 dictio_bases = {}
 for i in range(numero_de_bases):

@@ -7,7 +7,7 @@ from openpyxl.utils.dataframe import dataframe_to_rows
 import streamlit as st
 
 #Diccionario de nombres de Bases para cambiar los nombres de los archivos a los nombres de los almacenes en el inventario de la plataforma
-dictio_nombres_bases = {"BARCEL TOLUCA":"Barcel Lerma" , "BIMBO TOLUCA":"Bimbo Toluca" , "BARCEL ACAYUCAN":"Barcel Acayucan" , "BIMBO SAN LUIS POTOSI":"Bimbo San Luis Potosí"}
+dictio_nombres_bases = {"BARCEL TOLUCA":"Barcel Lerma" , "BIMBO TOLUCA":"Bimbo Toluca" , "BARCEL ACAYUCAN":"Barcel Acayucan" , "BIMBO SAN LUIS POTOSI":"Bimbo San Luis Potosí", "BIMBO PUEBLA":"Bimbo Puebla"}
 
 st.title("Comparacion de Inventarios", text_alignment="center")
 

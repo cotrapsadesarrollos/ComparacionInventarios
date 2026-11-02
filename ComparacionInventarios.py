@@ -65,7 +65,7 @@ if inventario_plataforma is not None and inventario_sae is not None and len(dict
             dictio_bases[i]["DIFERENCIA DE EXISTENCIAS"] = dictio_bases[i]["INVENTARIO"] - dictio_bases[i]["INVENTARIO PLATAFORMA"]
 
             #Imprimimos mensaje si hay o no hay diferencias
-            if dictio_bases[i]["DIFERENCIA DE EXISTENCIAS"].sum() == 0:
+            if dictio_bases[i]["DIFERENCIA DE EXISTENCIAS"].abs().sum() == 0:
                 st.write(f"NO HAY DIFERENCIAS EN EL INVENTARIO DE {i}")
             else:
                 st.write(f"SI HAY DIFERENCIAS EN EL INVENTARIO DE {i}, FAVOR DE REVISARLO")
